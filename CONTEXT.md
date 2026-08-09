@@ -4,12 +4,17 @@
 
 ## Language
 
+**Homepage**:
+网站根路由（`/`）页面，由 About、精选 Project 列表与 Contact 区块组成。
+_Avoid_: Landing Page
+
 **About**:
 首页的静态个人介绍区块，写死在代码中，包含三部分：Bio、Experience、Tech Stack。文案中包含指向外部网站的超链接。
 _Avoid_: Profile, Intro
 
 **Bio**:
 About 区块中的个人简介文字，含超链接。
+_Avoid_: Hero
 
 **Experience**:
 About 区块中的履历/工作与教育经历时间线。

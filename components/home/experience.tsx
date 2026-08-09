@@ -2,13 +2,17 @@ import { experience } from "@/lib/about";
 
 export function Experience() {
   return (
-    <section className="mx-auto max-w-4xl px-4 py-16">
-      <h2 className="font-heading text-xl font-semibold tracking-tight">
+    <section id="experience" className="mx-auto max-w-4xl px-4 py-16 sm:py-24">
+      <h2 className="font-heading text-2xl font-semibold tracking-tight sm:text-3xl">
         经历
       </h2>
-      <ol className="mt-8 space-y-8 border-l border-border pl-6">
+      <ol className="mt-10 space-y-10 border-l border-border pl-6">
         {experience.map((item) => (
-          <li key={`${item.org}-${item.role}`}>
+          <li key={`${item.org}-${item.role}`} className="relative">
+            <span
+              aria-hidden
+              className="absolute -left-7 top-1.5 size-2 rounded-full bg-primary"
+            />
             <p className="text-sm text-muted-foreground">
               {item.start} — {item.end}
             </p>

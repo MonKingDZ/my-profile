@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
@@ -15,14 +15,23 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+// Latin-only accent face for English words/names inside Chinese copy — see
+// CONTEXT.md "Bio" and docs/adr/0003 for why Chinese text stays on Geist Sans.
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-instrument-serif",
+  weight: "400",
+  style: ["italic", "normal"],
+  subsets: ["latin"],
+});
+
 // TODO: replace metadataBase with the real production domain
 export const metadata: Metadata = {
   metadataBase: new URL("https://example.com"),
   title: {
-    default: "你的名字", // TODO: replace with real name
-    template: "%s | 你的名字",
+    default: "MonKingdz", // TODO: replace with real name
+    template: "%s | MonKingdz",
   },
-  description: "个人主页：介绍、博客、项目与联系方式。", // TODO: replace with real description
+  description: "个人主页：介绍、博客、项目与联系方式。MonKingdz's personal website.", // TODO: replace with real description
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -30,7 +39,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="zh-CN"
       suppressHydrationWarning
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <ThemeProvider>

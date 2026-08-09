@@ -13,20 +13,28 @@ const navLinks = [
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur">
-      <div className="mx-auto flex h-14 max-w-4xl items-center justify-between px-4">
-        <Link href="/" className="font-heading text-sm font-semibold tracking-tight">
+      <div className="mx-auto flex h-16 max-w-4xl items-center justify-between px-4">
+        <Link
+          href="/"
+          className="font-accent text-2xl italic tracking-tight text-foreground"
+        >
           {dictionary.siteName}
         </Link>
-        <nav className="flex items-center gap-1 text-sm">
+        <nav className="flex items-center gap-8 text-sm">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="rounded-md px-3 py-1.5 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+              className="group relative px-1 py-1 font-bold tracking-wide text-primary"
             >
-              {link.label}
+              <span
+                aria-hidden
+                className="absolute inset-0 scale-50 rounded-full bg-[radial-gradient(circle,var(--primary)_0%,transparent_70%)] opacity-0 blur-md transition-all duration-300 ease-out group-hover:scale-[2.2] group-hover:opacity-40"
+              />
+              <span className="relative">{link.label}</span>
             </Link>
           ))}
+          <span className="h-4 w-px bg-border" aria-hidden />
           <ThemeToggle />
         </nav>
       </div>
