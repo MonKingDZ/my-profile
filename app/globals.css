@@ -1,13 +1,16 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
+@import "highlight.js/styles/github-dark.css";
+@plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
+  --font-sans: var(--font-geist-sans), -apple-system, "PingFang SC",
+    "Microsoft YaHei", sans-serif;
   --font-mono: var(--font-geist-mono);
   --font-heading: var(--font-sans);
   --color-sidebar-ring: var(--sidebar-ring);
@@ -49,24 +52,27 @@
 }
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
+  /* Brand accent (navy + gold, from the domain-modeling session) lives on
+     --primary/--ring only. --accent/--muted stay neutral so hover states
+     don't turn gold — see docs/adr for the source decision. */
+  --background: #f7f5f0;
+  --foreground: #192732;
+  --card: #ffffff;
+  --card-foreground: #192732;
+  --popover: #ffffff;
+  --popover-foreground: #192732;
+  --primary: #a97d2e;
+  --primary-foreground: #f7f5f0;
+  --secondary: #ece8e0;
+  --secondary-foreground: #192732;
+  --muted: #ece8e0;
+  --muted-foreground: #5b6670;
+  --accent: #ece8e0;
+  --accent-foreground: #192732;
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
+  --border: rgba(25, 39, 50, 0.12);
+  --input: rgba(25, 39, 50, 0.18);
+  --ring: #a97d2e;
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);
   --chart-3: oklch(0.439 0 0);
@@ -84,24 +90,24 @@
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
+  --background: #192732;
+  --foreground: #f7f5f0;
+  --card: #20303c;
+  --card-foreground: #f7f5f0;
+  --popover: #20303c;
+  --popover-foreground: #f7f5f0;
+  --primary: #bf9341;
+  --primary-foreground: #192732;
+  --secondary: #24343f;
+  --secondary-foreground: #f7f5f0;
+  --muted: #24343f;
+  --muted-foreground: #a9b4bc;
+  --accent: #24343f;
+  --accent-foreground: #f7f5f0;
   --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
+  --border: rgba(247, 245, 240, 0.12);
+  --input: rgba(247, 245, 240, 0.16);
+  --ring: #bf9341;
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);
   --chart-3: oklch(0.439 0 0);

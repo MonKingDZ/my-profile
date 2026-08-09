@@ -1,7 +1,19 @@
+import { Bio } from "@/components/home/bio";
+import { Experience } from "@/components/home/experience";
+import { TechStack } from "@/components/home/tech-stack";
+import { FeaturedProjects } from "@/components/home/featured-projects";
+import { ContactSection } from "@/components/home/contact-section";
+import { ScrollToHash } from "@/components/scroll-to-hash";
+
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-24">
-      <h1 className="text-4xl font-bold">Hello World</h1>
-    </main>
+    <>
+      <ScrollToHash />
+      <Bio />
+      <Experience />
+      <TechStack />
+      <FeaturedProjects />
+      <ContactSection />
+    </>
   );
 }
