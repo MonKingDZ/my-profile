@@ -26,6 +26,14 @@ export function ScrollProgressIndex() {
           current = id;
         }
       }
+      // The last section can be shorter than half the viewport, so its top
+      // never crosses `reference` — force it active once we hit page bottom.
+      const atBottom =
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 1;
+      if (atBottom) {
+        current = sections[sections.length - 1].id;
+      }
       setActiveId(current);
     };
 

@@ -12,6 +12,7 @@ export interface PostMeta {
   excerpt: string;
   cover?: string;
   tags: string[];
+  featured: boolean;
 }
 
 const REQUIRED_FIELDS = ["title", "date", "excerpt"] as const;
@@ -34,6 +35,7 @@ function parsePostMeta(slug: string, raw: string): PostMeta {
     excerpt: data.excerpt,
     cover: data.cover,
     tags: data.tags ?? [],
+    featured: data.featured ?? false,
   };
 }
 
@@ -48,6 +50,12 @@ export function getAllPosts(): PostMeta[] {
       parsePostMeta(slug, fs.readFileSync(path.join(POSTS_DIR, `${slug}.mdx`), "utf8"))
     )
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+}
+
+export function getFeaturedPosts(limit = 4): PostMeta[] {
+  return getAllPosts()
+    .filter((post) => post.featured)
+    .slice(0, limit);
 }
 
 export function getPostMeta(slug: string): PostMeta | null {
