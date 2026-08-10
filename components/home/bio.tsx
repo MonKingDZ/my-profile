@@ -51,28 +51,34 @@ export function Bio() {
         className="bio-aura pointer-events-none absolute size-[60vmin] rounded-full bg-[radial-gradient(circle,var(--primary)_0%,transparent_70%)] opacity-35 blur-3xl"
       />
       <div className="relative mx-auto max-w-3xl text-center">
-        <h1 className="text-4xl font-semibold tracking-tight sm:text-6xl md:text-7xl">
+        <h1 className="font-intro text-4xl font-semibold tracking-tight sm:text-5xl md:text-6xl">
           你好，我是
           <span className="font-accent text-primary italic"> {dictionary.siteName}</span>
         </h1>
-        {/* TODO: 替换为真实个人简介 */}
-        <p className="bio-copy mt-8 text-lg leading-relaxed text-muted-foreground sm:text-xl">
-          我是一名软件工程师，专注于构建体验良好的产品。平时的代码大多公开在{" "}
+        <p className="bio-copy font-intro mt-8 text-lg leading-relaxed text-muted-foreground sm:text-xl">
+          我是一名AI全栈独立开发者，喜欢通过代码改变现实生活。
+          <br />
+          同时我又是一个极度热爱生活的人，喜欢不断尝试新事物，对于探索未知有着强烈的好奇。{" "}
+          <br />
+          同时我也是一名终身学习者\滑雪教练\桨板爱好者\健身爱好者...
+          <br />
+          希望你能喜欢我的作品，也欢迎你和我交流。
+
           <a
-            href="https://github.com/yourusername"
+            href="https://github.com/MonKingDZ"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-accent text-primary italic underline underline-offset-4 hover:no-underline"
+            className="font-accent italic underline underline-offset-4 hover:no-underline"
           >
             GitHub
-          </a>{" "}
-          上，偶尔也会写点东西发在这个站点的{" "}
+          </a>{""}
+          上，偶尔也会写点东西发在这个站点的{""}
           <Link
-            href="/blog"
-            className="text-primary underline underline-offset-4 hover:no-underline"
+            href="https://monkingdz.com"
+            className="underline underline-offset-4 hover:no-underline"
           >
             博客
-          </Link>{" "}
+          </Link>{""}
           里。
         </p>
       </div>

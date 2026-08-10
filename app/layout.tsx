@@ -41,6 +41,20 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} h-full antialiased`}
     >
+      {/* next/font/google chokes under Turbopack on this CJK font's large
+          unicode-range subset count, so it's loaded as a stylesheet instead. */}
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=ZCOOL+XiaoWei&display=swap"
+        precedence="default"
+      />
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap"
+        precedence="default"
+      />
       <body className="min-h-full flex flex-col">
         <ThemeProvider>
           <SiteHeader />

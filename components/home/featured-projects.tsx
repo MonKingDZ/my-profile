@@ -12,7 +12,7 @@ export function FeaturedProjects() {
         <h2 className="font-heading text-2xl font-semibold tracking-tight sm:text-3xl">
           精选项目
         </h2>
-        <Link href="/projects" className="text-sm text-primary hover:underline">
+        <Link href="/projects" className="text-sm text-brand-rose hover:underline">
           查看全部 →
         </Link>
       </div>
