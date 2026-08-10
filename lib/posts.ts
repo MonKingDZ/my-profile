@@ -8,6 +8,7 @@ const POSTS_DIR = path.join(process.cwd(), "content/posts/zh");
 export interface PostMeta {
   slug: string;
   title: string;
+  subtitle?: string;
   date: string;
   excerpt: string;
   cover?: string;
@@ -31,6 +32,7 @@ function parsePostMeta(slug: string, raw: string): PostMeta {
   return {
     slug,
     title: data.title,
+    subtitle: data.subtitle,
     date: data.date,
     excerpt: data.excerpt,
     cover: data.cover,
