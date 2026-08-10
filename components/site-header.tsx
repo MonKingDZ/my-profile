@@ -1,4 +1,8 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
+import { motion, useMotionValueEvent, useScroll } from "motion/react";
 
 import { ThemeToggle } from "@/components/theme-toggle";
 import { dictionary } from "@/lib/i18n/dictionaries/zh";
@@ -11,8 +15,19 @@ const navLinks = [
 ];
 
 export function SiteHeader() {
+  const { scrollY } = useScroll();
+  const [hidden, setHidden] = useState(false);
+
+  useMotionValueEvent(scrollY, "change", (current) => {
+    const previous = scrollY.getPrevious() ?? 0;
+    setHidden(current > previous && current > 150);
+  });
+
   return (
-    <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur">
+    <motion.header
+      animate={{ y: hidden ? "-100%" : "0%", opacity: hidden ? 0 : 1 }}
+      transition={{ duration: 0.3, ease: "easeInOut" }}
+      className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-4xl items-center justify-between px-4">
         <Link
           href="/"
@@ -38,6 +53,6 @@ export function SiteHeader() {
           <ThemeToggle />
         </nav>
       </div>
-    </header>
+    </motion.header>
   );
 }

@@ -6,9 +6,8 @@ import { ChevronDown } from "lucide-react";
 const sections = [
   { id: "bio", label: "I" },
   { id: "experience", label: "II" },
-  { id: "tech-stack", label: "III" },
-  { id: "featured-projects", label: "IV" },
-  { id: "contact", label: "V" },
+  { id: "featured-projects", label: "III" },
+  { id: "contact", label: "IV" },
 ];
 
 export function ScrollProgressIndex() {

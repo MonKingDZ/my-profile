@@ -1,6 +1,5 @@
 import { Bio } from "@/components/home/bio";
 import { Experience } from "@/components/home/experience";
-import { TechStack } from "@/components/home/tech-stack";
 import { FeaturedProjects } from "@/components/home/featured-projects";
 import { ContactSection } from "@/components/home/contact-section";
 import { ScrollProgressIndex } from "@/components/home/scroll-progress-index";
@@ -13,7 +12,6 @@ export default function Home() {
       <ScrollProgressIndex />
       <Bio />
       <Experience />
-      <TechStack />
       <FeaturedProjects />
       <ContactSection />
     </>

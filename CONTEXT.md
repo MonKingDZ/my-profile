@@ -9,7 +9,7 @@
 _Avoid_: Landing Page
 
 **About**:
-首页的静态个人介绍区块，写死在代码中，包含三部分：Bio、Experience、Tech Stack。文案中包含指向外部网站的超链接。
+首页的静态个人介绍区块，写死在代码中，包含两部分：Bio、Experience（每条 Experience 自带其 Tech Stack）。文案中包含指向外部网站的超链接。
 _Avoid_: Profile, Intro
 
 **Bio**:
@@ -17,11 +17,12 @@ About 区块中的个人简介文字，含超链接。
 _Avoid_: Hero
 
 **Experience**:
-About 区块中的履历/工作与教育经历时间线。
+About 区块中的履历/工作与教育经历时间线，允许不同记录的时间段重叠（如全职与自由职业并行）。每条记录附带其 Tech Stack。
 _Avoid_: Resume, 简历
 
 **Tech Stack**:
-About 区块中展示的技术栈/工具列表。
+依附于某条 Experience 记录的技术使用条目，不是独立于 Experience 之外的全局列表。每项包含名称、掌握水平（量化熟练度）与一段说明文字。
+_Avoid_: 独立技术栈区块、全局技能列表
 
 **Project**:
 个人项目模块中的一个条目。手动维护的精选配置（写在代码/配置文件中），不从 GitHub API 自动拉取。字段包括：标题、简介、技术标签、GitHub 链接、Demo 链接、封面图。无独立详情页。首页展示 3-4 个精选，`/projects` 展示完整列表。
@@ -40,5 +41,5 @@ _Avoid_: Category
 _Avoid_: RSS（单指 feed 本身，不等于 Subscribe 页面）
 
 **Contact**:
-首页内的一个区块（Bio/Experience/Tech Stack/Projects 精选之后），包含邮箱与简历下载。导航栏的 Contact 是锚点跳转，不是独立路由。常用社交链接常驻 Footer。
+首页内的一个区块（Bio/Experience/Projects 精选之后），包含邮箱与简历下载。导航栏的 Contact 是锚点跳转，不是独立路由。常用社交链接常驻 Footer。
 _Avoid_: 独立 Contact 页面
