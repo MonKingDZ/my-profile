@@ -45,26 +45,20 @@ export function FeedCard({
   const placeholder = PLACEHOLDER_STYLES[index % PLACEHOLDER_STYLES.length];
 
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { amount: 0.3, once: false });
+  const isInView = useInView(ref, { amount: 0.3, once: true });
   const controls = useAnimation();
   const { scrollY } = useScroll();
   const scrollVelocity = useVelocity(scrollY);
 
   useEffect(() => {
-    if (isInView) {
-      // Faster scroll = shorter, snappier rise. Slower/idle scroll = a longer, more graceful float up.
-      const speed = Math.abs(scrollVelocity.get());
-      const duration = Math.min(1.1, Math.max(0.45, 1.1 - speed / 2500));
-      controls.start(
-        { y: 0, opacity: 1, scale: 1 },
-        { type: "spring", duration, bounce: 0.32 },
-      );
-    } else {
-      controls.start(
-        { y: 80, opacity: 0, scale: 0.92 },
-        { duration: 0.25, ease: "easeOut" },
-      );
-    }
+    if (!isInView) return;
+    // Faster scroll = shorter, snappier rise. Slower/idle scroll = a longer, more graceful float up.
+    const speed = Math.abs(scrollVelocity.get());
+    const duration = Math.min(1.1, Math.max(0.45, 1.1 - speed / 2500));
+    controls.start(
+      { y: 0, opacity: 1, scale: 1 },
+      { type: "spring", duration, bounce: 0.32 },
+    );
   }, [isInView, controls, scrollVelocity]);
 
   return (

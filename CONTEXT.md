@@ -5,7 +5,7 @@
 ## Language
 
 **Homepage**:
-网站根路由（`/`）页面，由 About、精选 Project 列表与 Contact 区块组成。
+网站根路由（`/`）页面，由 Bio、推荐内容（精选 Project 与 Post 混排）、Experience 与 Contact 区块依次组成。
 _Avoid_: Landing Page
 
 **About**:
@@ -41,5 +41,5 @@ _Avoid_: Category
 _Avoid_: RSS（单指 feed 本身，不等于 Subscribe 页面）
 
 **Contact**:
-首页内的一个区块（Bio/Experience/Projects 精选之后），包含邮箱与简历下载。导航栏的 Contact 是锚点跳转，不是独立路由。常用社交链接常驻 Footer。
+首页内的一个区块（Bio/推荐内容/Experience 之后），包含邮箱与简历下载。导航栏的 Contact 是锚点跳转，不是独立路由。常用社交链接常驻 Footer。
 _Avoid_: 独立 Contact 页面

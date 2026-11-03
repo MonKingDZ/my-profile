@@ -3,7 +3,7 @@ import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { SITE_URL } from "@/lib/site";
+import { SITE_DESCRIPTION, SITE_URL } from "@/lib/site";
 // next/font/google chokes under Turbopack on these CJK fonts' large
 // unicode-range subset count, and Google Fonts is unreachable from mainland
 // China — so the woff2 slices are self-hosted under public/fonts.
@@ -36,10 +36,10 @@ export const metadata: Metadata = {
     types: { "application/rss+xml": "/rss.xml" },
   },
   title: {
-    default: "MonKingdz", // TODO: replace with real name
+    default: "MonKingdz",
     template: "%s | MonKingdz",
   },
-  description: "个人主页：介绍、博客、项目与联系方式。MonKingdz's personal website.", // TODO: replace with real description
+  description: SITE_DESCRIPTION,
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

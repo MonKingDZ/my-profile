@@ -1,5 +1,5 @@
 import { getAllPosts } from "@/lib/posts";
-import { SITE_URL } from "@/lib/site";
+import { SITE_DESCRIPTION, SITE_URL } from "@/lib/site";
 
 export const dynamic = "force-static";
 
@@ -30,9 +30,9 @@ export function GET() {
   const xml = `<?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0">
 <channel>
-  <title>个人博客</title>
+  <title>MonKingdz 的博客</title>
   <link>${SITE_URL}</link>
-  <description>个人博客更新</description>
+  <description>${escapeXml(SITE_DESCRIPTION)}</description>
   <language>zh-CN</language>${items}
 </channel>
 </rss>`;
