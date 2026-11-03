@@ -1,9 +1,7 @@
 import { getAllPosts } from "@/lib/posts";
+import { SITE_URL } from "@/lib/site";
 
 export const dynamic = "force-static";
-
-// TODO: replace with the real production domain
-const SITE_URL = "https://example.com";
 
 function escapeXml(value: string): string {
   return value.replace(

@@ -3,10 +3,10 @@ import { Mail } from "lucide-react";
 import { GitHubIcon, LinkedInIcon } from "@/components/icons";
 import { dictionary } from "@/lib/i18n/dictionaries/zh";
 
-// TODO: replace with real contact/social links
+// TODO: replace LinkedIn with a real link
 const socialLinks = [
-  { href: "mailto:you@example.com", label: "Email", icon: Mail },
-  { href: "https://github.com/yourusername", label: "GitHub", icon: GitHubIcon },
+  { href: "mailto:dengzhaoz@qq.com", label: "Email", icon: Mail },
+  { href: "https://github.com/MonKingDZ", label: "GitHub", icon: GitHubIcon },
   { href: "https://www.linkedin.com/in/yourusername", label: "LinkedIn", icon: LinkedInIcon },
 ];
 

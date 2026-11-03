@@ -9,41 +9,24 @@ export interface Project {
   featured: boolean;
 }
 
-// TODO: replace with real projects
 const projects: Project[] = [
   {
-    slug: "project-one",
-    title: "Project One",
-    description: "一句话描述这个项目解决了什么问题、用了什么技术。",
-    tags: ["Next.js", "TypeScript"],
-    githubUrl: "https://github.com/yourusername/project-one",
-    demoUrl: "https://project-one.example.com",
+    slug: "my-nl2sql",
+    title: "my_NL2SQL",
+    description:
+      "个人复刻的开源 NL2SQL Agent：基于 LangGraph 状态机串联意图解析、RAG 检索、SQL 生成与 Self-Refine 自我修正，验证公司生产项目中沉淀的架构设计，目前处于骨架搭建阶段。",
+    tags: ["LangGraph", "ClickHouse", "RAG", "Python"],
+    githubUrl: "https://github.com/MonKingDZ/my_NL2SQL",
     featured: true,
   },
   {
-    slug: "project-two",
-    title: "Project Two",
-    description: "一句话描述这个项目解决了什么问题、用了什么技术。",
-    tags: ["React", "Node.js"],
-    githubUrl: "https://github.com/yourusername/project-two",
+    slug: "my-profile",
+    title: "个人网站",
+    description:
+      "基于 Next.js + TypeScript 搭建的个人主页，包含 Bio、经历时间线、项目展示与 MDX 驱动的博客。",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS"],
+    githubUrl: "https://github.com/MonKingDZ/my-profile",
     featured: true,
-  },
-  {
-    slug: "project-three",
-    title: "Project Three",
-    description: "一句话描述这个项目解决了什么问题、用了什么技术。",
-    tags: ["TypeScript", "Tailwind CSS"],
-    githubUrl: "https://github.com/yourusername/project-three",
-    demoUrl: "https://project-three.example.com",
-    featured: true,
-  },
-  {
-    slug: "project-four",
-    title: "Project Four",
-    description: "一句话描述这个项目解决了什么问题、用了什么技术。",
-    tags: ["Python"],
-    githubUrl: "https://github.com/yourusername/project-four",
-    featured: false,
   },
 ];
 

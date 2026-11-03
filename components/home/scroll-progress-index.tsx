@@ -5,8 +5,8 @@ import { ChevronDown } from "lucide-react";
 
 const sections = [
   { id: "bio", label: "I" },
-  { id: "experience", label: "II" },
-  { id: "featured-projects", label: "III" },
+  { id: "featured-projects", label: "II" },
+  { id: "experience", label: "III" },
   { id: "contact", label: "IV" },
 ];
 

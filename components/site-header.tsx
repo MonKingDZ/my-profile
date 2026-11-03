@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { Menu, X } from "lucide-react";
 import { motion, useMotionValueEvent, useScroll } from "motion/react";
 
 import { ThemeToggle } from "@/components/theme-toggle";
@@ -17,10 +18,13 @@ const navLinks = [
 export function SiteHeader() {
   const { scrollY } = useScroll();
   const [hidden, setHidden] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useMotionValueEvent(scrollY, "change", (current) => {
     const previous = scrollY.getPrevious() ?? 0;
-    setHidden(current > previous && current > 150);
+    const scrollingDown = current > previous && current > 150;
+    setHidden(scrollingDown);
+    if (scrollingDown) setMenuOpen(false);
   });
 
   return (
@@ -35,7 +39,20 @@ export function SiteHeader() {
         >
           {dictionary.siteName}
         </Link>
-        <nav className="flex items-center gap-8 text-sm">
+        <div className="flex items-center gap-1 sm:hidden">
+          <ThemeToggle />
+          <button
+            type="button"
+            onClick={() => setMenuOpen((open) => !open)}
+            aria-label={menuOpen ? "关闭菜单" : "打开菜单"}
+            aria-expanded={menuOpen}
+            aria-controls="mobile-nav"
+            className="flex size-9 items-center justify-center rounded-md text-primary"
+          >
+            {menuOpen ? <X className="size-5" /> : <Menu className="size-5" />}
+          </button>
+        </div>
+        <nav className="hidden items-center gap-8 text-sm sm:flex">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -53,6 +70,23 @@ export function SiteHeader() {
           <ThemeToggle />
         </nav>
       </div>
+      {menuOpen ? (
+        <nav
+          id="mobile-nav"
+          className="border-t border-border/60 px-4 py-2 sm:hidden"
+        >
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              onClick={() => setMenuOpen(false)}
+              className="block py-3 font-bold tracking-wide text-primary"
+            >
+              {link.label}
+            </Link>
+          ))}
+        </nav>
+      ) : null}
     </motion.header>
   );
 }

@@ -11,8 +11,8 @@ export default function Home() {
       <ScrollToHash />
       <ScrollProgressIndex />
       <Bio />
-      <Experience />
       <FeaturedProjects />
+      <Experience />
       <ContactSection />
     </>
   );

@@ -24,7 +24,9 @@ export async function generateMetadata({
       description: post.excerpt,
       type: "article",
       publishedTime: post.date,
-      images: post.cover ? [post.cover] : undefined,
+      // Setting openGraph here replaces the inherited one, so fall back to
+      // the site-wide image explicitly.
+      images: [post.cover ?? "/opengraph-image"],
     },
   };
 }
