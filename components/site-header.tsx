@@ -11,7 +11,8 @@ import { dictionary } from "@/lib/i18n/dictionaries/zh";
 const navLinks = [
   { href: "/blog", label: dictionary.nav.blog },
   { href: "/projects", label: dictionary.nav.projects },
-  { href: "/subscribe", label: dictionary.nav.subscribe },
+  // Hidden for now — uncomment to bring back the RSS subscribe page.
+  // { href: "/subscribe", label: dictionary.nav.subscribe },
   { href: "/#contact", label: dictionary.nav.contact },
 ];
 
