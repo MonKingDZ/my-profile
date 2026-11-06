@@ -42,10 +42,7 @@ export function Experience() {
                 <p className="text-sm text-muted-foreground">
                   {item.start} — {item.end}
                 </p>
-                <h3 className="mt-1 font-medium">
-                  {item.role}
-                  {item.org && ` · ${item.org}`}
-                </h3>
+                <h3 className="mt-1 font-medium">{item.role}</h3>
                 <p className="mt-1 text-sm text-muted-foreground">
                   {item.description}
                 </p>

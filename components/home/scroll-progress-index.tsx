@@ -5,8 +5,8 @@ import { ChevronDown } from "lucide-react";
 
 const sections = [
   { id: "bio", label: "I" },
-  { id: "experience", label: "II" },
-  { id: "featured-projects", label: "III" },
+  { id: "featured-projects", label: "II" },
+  { id: "experience", label: "III" },
   { id: "contact", label: "IV" },
 ];
 
@@ -25,6 +25,14 @@ export function ScrollProgressIndex() {
         if (el && el.getBoundingClientRect().top <= reference) {
           current = id;
         }
+      }
+      // The last section can be shorter than half the viewport, so its top
+      // never crosses `reference` — force it active once we hit page bottom.
+      const atBottom =
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 1;
+      if (atBottom) {
+        current = sections[sections.length - 1].id;
       }
       setActiveId(current);
     };

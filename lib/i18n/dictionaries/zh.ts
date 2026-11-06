@@ -1,5 +1,5 @@
 export const dictionary = {
-  siteName: "MonKingdz", // TODO: replace with real name
+  siteName: "MonKingdz",
   nav: {
     blog: "博客",
     projects: "项目",

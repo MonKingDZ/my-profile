@@ -3,17 +3,17 @@ import { Mail } from "lucide-react";
 import { GitHubIcon, LinkedInIcon } from "@/components/icons";
 import { dictionary } from "@/lib/i18n/dictionaries/zh";
 
-// TODO: replace with real contact/social links
+// TODO: replace LinkedIn with a real link
 const socialLinks = [
-  { href: "mailto:you@example.com", label: "Email", icon: Mail },
-  { href: "https://github.com/yourusername", label: "GitHub", icon: GitHubIcon },
+  { href: "mailto:dengzhaoz@qq.com", label: "Email", icon: Mail },
+  { href: "https://github.com/MonKingDZ", label: "GitHub", icon: GitHubIcon },
   { href: "https://www.linkedin.com/in/yourusername", label: "LinkedIn", icon: LinkedInIcon },
 ];
 
 export function SiteFooter() {
   return (
     <footer className="border-t border-border/60">
-      <div className="mx-auto flex max-w-4xl flex-col items-center gap-4 px-4 py-10 text-sm text-muted-foreground sm:flex-row sm:justify-between">
+      <div className="mx-auto flex max-w-4xl flex-col items-center gap-4 px-4 py-10 text-sm text-brand-rose sm:flex-row sm:justify-between">
         <p>{dictionary.footer.rights(new Date().getFullYear())}</p>
         <div className="flex items-center gap-2">
           {socialLinks.map(({ href, label, icon: Icon }) => (

@@ -3,6 +3,12 @@ import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { SITE_DESCRIPTION, SITE_URL } from "@/lib/site";
+// next/font/google chokes under Turbopack on these CJK fonts' large
+// unicode-range subset count, and Google Fonts is unreachable from mainland
+// China — so the woff2 slices are self-hosted under public/fonts.
+import "../public/fonts/zcool-xiaowei/font.css";
+import "../public/fonts/ma-shan-zheng/font.css";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -24,14 +30,16 @@ const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
 });
 
-// TODO: replace metadataBase with the real production domain
 export const metadata: Metadata = {
-  metadataBase: new URL("https://example.com"),
+  metadataBase: new URL(SITE_URL),
+  alternates: {
+    types: { "application/rss+xml": "/rss.xml" },
+  },
   title: {
-    default: "MonKingdz", // TODO: replace with real name
+    default: "MonKingdz",
     template: "%s | MonKingdz",
   },
-  description: "个人主页：介绍、博客、项目与联系方式。MonKingdz's personal website.", // TODO: replace with real description
+  description: SITE_DESCRIPTION,
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -41,20 +49,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} h-full antialiased`}
     >
-      {/* next/font/google chokes under Turbopack on this CJK font's large
-          unicode-range subset count, so it's loaded as a stylesheet instead. */}
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=ZCOOL+XiaoWei&display=swap"
-        precedence="default"
-      />
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap"
-        precedence="default"
-      />
       <body className="min-h-full flex flex-col">
         <ThemeProvider>
           <SiteHeader />
