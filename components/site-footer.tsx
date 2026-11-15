@@ -2,11 +2,12 @@ import { Mail } from "lucide-react";
 
 import { GitHubIcon, LinkedInIcon } from "@/components/icons";
 import { dictionary } from "@/lib/i18n/dictionaries/zh";
+import { CONTACT_EMAIL, GITHUB_URL, LINKEDIN_URL } from "@/lib/site";
 
 const socialLinks = [
-  { href: "mailto:dengzhaoz@qq.com", label: "Email", icon: Mail },
-  { href: "https://github.com/MonKingDZ", label: "GitHub", icon: GitHubIcon },
-  { href: "https://www.linkedin.com/in/zhao-deng-a9b7a1449", label: "LinkedIn", icon: LinkedInIcon },
+  { href: `mailto:${CONTACT_EMAIL}`, label: "Email", icon: Mail },
+  { href: GITHUB_URL, label: "GitHub", icon: GitHubIcon },
+  { href: LINKEDIN_URL, label: "LinkedIn", icon: LinkedInIcon },
 ];
 
 export function SiteFooter() {

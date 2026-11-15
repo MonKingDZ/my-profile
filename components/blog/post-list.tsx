@@ -36,6 +36,10 @@ export function PostList({
     : posts;
   const visiblePosts = expanded ? filteredPosts : filteredPosts.slice(0, PAGE_SIZE);
 
+  if (posts.length === 0) {
+    return <p className="mt-8 text-muted-foreground">文章筹备中，敬请期待。</p>;
+  }
+
   return (
     <>
       <nav aria-label="按标签筛选" className="mt-8 flex flex-wrap gap-2">

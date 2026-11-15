@@ -1,4 +1,5 @@
 import { buttonVariants } from "@/components/ui/button";
+import { CONTACT_EMAIL } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 export function ContactSection() {
@@ -15,7 +16,7 @@ export function ContactSection() {
       </p>
       <div className="mt-8 flex flex-wrap gap-3">
         <a
-          href="mailto:dengzhaoz@qq.com"
+          href={`mailto:${CONTACT_EMAIL}`}
           className={cn(buttonVariants({ variant: "default", size: "lg" }))}
         >
           发送邮件

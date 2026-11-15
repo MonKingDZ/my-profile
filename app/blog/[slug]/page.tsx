@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 
 import { TagLink } from "@/components/blog/tag-link";
+import { JsonLd, personJsonLd } from "@/components/json-ld";
 import { formatPostDate } from "@/lib/date";
 import {
   getAdjacentPosts,
@@ -11,6 +12,7 @@ import {
   getPostMeta,
   type PostMeta,
 } from "@/lib/posts";
+import { SITE_URL } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 export function generateStaticParams() {
@@ -54,8 +56,24 @@ export default async function BlogPostPage({
 
   const { newer, older } = getAdjacentPosts(slug);
 
+  const url = `${SITE_URL}/blog/${slug}`;
+  const blogPostingJsonLd = {
+    "@type": "BlogPosting",
+    "@id": `${url}#article`,
+    mainEntityOfPage: url,
+    url,
+    headline: post.title,
+    description: post.excerpt,
+    datePublished: post.date,
+    image: new URL(post.cover ?? "/opengraph-image", SITE_URL).toString(),
+    keywords: post.tags,
+    inLanguage: "zh-CN",
+    author: personJsonLd,
+  };
+
   return (
     <article className="mx-auto max-w-4xl px-4 py-16 sm:py-24">
+      <JsonLd data={blogPostingJsonLd} />
       <Link
         href="/blog"
         className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-primary"

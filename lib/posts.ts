@@ -54,7 +54,8 @@ function parsePostMeta(slug: string, raw: string): PostMeta {
 export function getAllPosts(): PostMeta[] {
   const slugs = fs
     .readdirSync(POSTS_DIR)
-    .filter((file) => file.endsWith(".mdx"))
+    // `_`-prefixed files (e.g. _template.mdx) are not published.
+    .filter((file) => file.endsWith(".mdx") && !file.startsWith("_"))
     .map((file) => file.replace(/\.mdx$/, ""));
 
   return slugs

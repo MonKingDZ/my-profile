@@ -34,6 +34,21 @@ featured: true             # 选填，出现在首页「推荐内容」
 
 缺少必填字段会直接构建失败。文章页、RSS、sitemap 都在构建时静态生成，新文章需要重新部署才会上线。
 
+可以直接复制 `content/posts/zh/_template.mdx` 改名使用；`_` 开头的文件不会发布，模板本身请保留（目录里没有任何 MDX 时构建会失败）。
+
+## 部署（服务器，pm2）
+
+部署脚本 `scripts/deploy.sh` 不随仓库提交（`/scripts` 已在 `.gitignore` 中），需单独放到服务器仓库目录的 `scripts/` 下。
+
+```bash
+git clone <仓库地址> && cd my-profile
+# 把 deploy.sh 放到 scripts/ 下；按需创建 .env.production（如 NEXT_PUBLIC_POSTHOG_KEY）
+scripts/deploy.sh                 # 一键拉取 + 构建 + pm2 重启
+scripts/deploy.sh --install-cron  # 每 5 分钟检查 main，有新提交自动部署
+```
+
+环境变量 `APP_NAME`（pm2 进程名，默认 `my-profile`）、`PORT`（默认 `3000`）、`BRANCH`（默认 `main`）可覆盖默认值。自动部署日志写在 `deploy.log`。
+
 ## 目录要点
 
 | 路径 | 内容 |
