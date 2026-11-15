@@ -39,3 +39,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+mynote.md
+# deploy script
+/deploy.log
+/.deploy.lock
+
+/scripts
